@@ -10,6 +10,6 @@ import React from "react";
 // import App from "./components/Gesture/NestedView1";
 // import App from "./components/Gesture/NestedView2";
 // import App from "./components/Gesture/NestedView3";
-import App from "./components/Gesture/NestedView4";
-
+// import App from "./components/Gesture/NestedView4";
+import App from "./components/Gesture/PanThreeFingerLongPress";
 export default App;
