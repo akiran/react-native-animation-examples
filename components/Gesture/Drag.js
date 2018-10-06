@@ -9,7 +9,8 @@ import {
   Animated,
   Easing,
   Dimensions,
-  Image
+  Image,
+  Button
 } from "react-native";
 
 export default class DragAndDrop extends Component {
@@ -37,7 +38,7 @@ export default class DragAndDrop extends Component {
             showDraggable: false
           });
         } else {
-          Animated.spring(this.state.pan, { toValue: { x: 0, y: 0 } }).start();
+          this.reset();
         }
       }
     });
@@ -53,6 +54,12 @@ export default class DragAndDrop extends Component {
       dropZoneValues: event.nativeEvent.layout
     });
   }
+  reset = () => {
+    Animated.spring(this.state.pan, { toValue: { x: 0, y: 0 } }).start();
+    this.setState({
+      showDraggable: true
+    });
+  };
 
   render() {
     console.log(this.state.pan.getLayout());
@@ -66,6 +73,7 @@ export default class DragAndDrop extends Component {
         </View>
 
         {this.renderDraggable()}
+        <Button title="Reset" onPress={this.reset} />
       </View>
     );
   }
