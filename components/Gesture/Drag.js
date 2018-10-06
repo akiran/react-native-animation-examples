@@ -1,3 +1,5 @@
+// Reference : https://moduscreate.com/blog/animated_drag_and_drop_with_react_native/
+
 import React, { Component } from "react";
 import {
   StyleSheet,
@@ -10,7 +12,7 @@ import {
   Image
 } from "react-native";
 
-export default class Viewport extends Component {
+export default class DragAndDrop extends Component {
   constructor(props) {
     super(props);
 
@@ -53,6 +55,7 @@ export default class Viewport extends Component {
   }
 
   render() {
+    console.log(this.state.pan.getLayout());
     return (
       <View style={styles.mainContainer}>
         <View
@@ -75,10 +78,9 @@ export default class Viewport extends Component {
             {...this.panResponder.panHandlers}
             style={[this.state.pan.getLayout()]}
           >
-            <Image
-              source={require("./cat.png")}
-              style={{ width: 50, height: 50 }}
-            />
+            <View style={styles.circle}>
+              <Text style={styles.text}>Drag me</Text>
+            </View>
           </Animated.View>
         </View>
       );
